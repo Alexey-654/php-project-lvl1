@@ -1,0 +1,12 @@
+{
+    "name": "alexey/php-project-lvl1",
+    "description": "console game on php",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Alexey-654",
+            "email": "vianosenko@gmail.com"
+        }
+    ],
+    "require": {}
+}
