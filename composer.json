@@ -1,6 +1,7 @@
 {
     "name": "alexey/php-project-lvl1",
     "description": "console game on php",
+    "license": "MIT",
     "type": "project",
     "authors": [
         {
@@ -8,5 +9,6 @@
             "email": "vianosenko@gmail.com"
         }
     ],
+    "bin": ["bin/brain-games"],
     "require": {}
 }
