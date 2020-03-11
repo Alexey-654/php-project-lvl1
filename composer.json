@@ -3,12 +3,19 @@
     "description": "console game on php",
     "license": "MIT",
     "type": "project",
+    "bin": ["bin/brain-games"],
     "authors": [
         {
             "name": "Alexey-654",
             "email": "vianosenko@gmail.com"
         }
     ],
-    "bin": ["bin/brain-games"],
-    "require": {}
+    "autoload": {
+        "files": [
+            "src/Cli.php"
+        ]
+    },
+    "require": {
+        "wp-cli/php-cli-tools": "^0.11.11"
+    }
 }
