@@ -3,7 +3,7 @@
     "description": "console game on php",
     "license": "MIT",
     "type": "project",
-    "bin": ["bin/brain-games"],
+    "bin": ["bin/brain-even"],
     "authors": [
         {
             "name": "Alexey-654",
@@ -15,7 +15,8 @@
     },
     "autoload": {
         "files": [
-            "src/Cli.php"
+            "src/Cli.php",
+            "src/Even.php"
         ]
     },
     "require": {
