@@ -2,7 +2,7 @@
     "name": "alexey-654/php-project-lvl1",
     "description": "console game on php",
     "license": "MIT",
-    "type": "project",
+    "type": "library",
     "bin": ["bin/brain-even"],
     "authors": [
         {

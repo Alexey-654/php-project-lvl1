@@ -8,7 +8,7 @@ Simple console game on php
 ## Installation
 In your Linux terminal go to the directory where you want to install this package then type two commands:
 ```bash
-$ composer global create-project alexey-654/php-project-lvl1
+$ composer global require alexey-654/php-project-lvl1
 ```
 
 ```bash
