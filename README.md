@@ -6,33 +6,30 @@ Simple console game on php
 ![CI](https://github.com/Alexey-654/php-project-lvl1/workflows/CI/badge.svg)
 
 ## Installation
-### Local
-In your Linux terminal go to the directory where you want to install this package then type two commands:
-```bash
-$ composer require alexey-654/php-project-lvl1
-```
-
-```bash
-$ make install
-```
 ### Global
 In your Linux terminal in any directoty type
 ```bash
 $ composer global require alexey-654/php-project-lvl1
 ```
-In terminal find and go to ".composer" directory. Then type:
+[![asciicast](https://asciinema.org/a/1gnWTcbRcybYk0NzBMJMqdiAk.svg)](https://asciinema.org/a/1gnWTcbRcybYk0NzBMJMqdiAk)
+
+### Local
+In your Linux terminal go to the directory where you want to install this package then type three commands:
 ```bash
-$ cd vendor/alexey-654/php-project-lvl1
-```
-Last type:
-```bash
+$ git clone https://github.com/Alexey-654/php-project-lvl1.git
+$ cd php-project-lvl1/
 $ make install
 ```
 
 ## Usage Examples
 ### When package installed globally
-In your Linux terminal type command:
+In your terminal type command:
 ```bash
 $ brain-even
+```
+### When package installed localy
+In your terminal go to the directory where you installed package and type command:
+```bash
+$ bin/brain-even
 ```
 Enjoy:)
