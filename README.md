@@ -1,5 +1,5 @@
 # php-project-lvl1
-Simple console game on php
+Simple console games on php
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/b9574ac0699a8c0cf25c/maintainability)](https://codeclimate.com/github/Alexey-654/php-project-lvl1/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/b9574ac0699a8c0cf25c/test_coverage)](https://codeclimate.com/github/Alexey-654/php-project-lvl1/test_coverage)
@@ -7,7 +7,7 @@ Simple console game on php
 
 ## Installation
 ### Global
-In your Linux terminal in any directoty type
+In your Linux terminal in any directory type
 ```bash
 $ composer global require alexey-654/php-project-lvl1
 ```
@@ -23,13 +23,15 @@ $ make install
 
 ## Usage Examples
 ### When package installed globally
-In your terminal type command:
+In your terminal type command (name one of games):
 ```bash
 $ brain-even
 ```
-### When package installed localy
-In your terminal go to the directory where you installed package and type command:
+[![asciicast](https://asciinema.org/a/JPtHHwQrvSCUzS4PZVl5fEYMo.svg)](https://asciinema.org/a/JPtHHwQrvSCUzS4PZVl5fEYMo)
+
 ```bash
-$ bin/brain-even
+$ brain-calc
 ```
+[![asciicast](https://asciinema.org/a/lWtVlbWzTrUpWVQ2dOWCrNFQG.svg)](https://asciinema.org/a/lWtVlbWzTrUpWVQ2dOWCrNFQG)
+
 Enjoy:)

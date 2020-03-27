@@ -9,7 +9,12 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
+use function BrainGames\Engine\start;
+use function BrainGames\Calc\gameCalc;
 
-use function BrainGames\Even\isEven;
 
-isEven();
+$nameOfGame = "What is the result of the expression?";
+
+
+start();
+gameCalc();
