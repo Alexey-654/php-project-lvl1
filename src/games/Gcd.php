@@ -20,8 +20,7 @@ function game()
         /*
         * calculate right answer
         */
-        for($index = 1; $index < $firstNum; $index++)
-        {
+        for ($index = 1; $index < $firstNum; $index++) {
             if ($firstNum % $index === 0 && $secondNum % $index === 0) {
                 $rightAnswer = $index;
             }
