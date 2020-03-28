@@ -1,6 +1,6 @@
 <?php
 
-namespace BrainGames\Calc;
+namespace BrainGames\Progression;
 
 use function cli\line;
 use function cli\prompt;
@@ -12,23 +12,26 @@ function game()
     $askName = prompt('May I have your name?');
     line("Hello, %s!", $askName);
 
-    $operators = ['*', '+', '-'];
     for ($i = 0; $i < QNT_LOOPS; $i++) {
-        $firstOperand = rand(1, 50);
-        $secondOperand = rand(1, 20);
-        $randOperators = $operators[rand(0, 2)];
-        line("Question:{$firstOperand} {$randOperators} {$secondOperand}");
+        $question = "";
+        $start = rand(1, 100);
+        $pace = rand(2, 9);
+        $position = rand(1, 10);
+        $nextNum = $start;
+        for ($index = 0; $index <= 10; $index++) {
+            if ($position === $index) {
+                $question = "{$question} ..";
+            } else {
+                $question = "{$question} {$nextNum}";
+            }
+            $nextNum = $nextNum + $pace;
+        }
+        line("Question:{$question}");
         $answer = prompt('Your answer');
         /*
         * calculate right answer
         */
-        if ($randOperators === "*") {
-            $rightAnswer = $firstOperand * $secondOperand;
-        } elseif ($randOperators === "+") {
-            $rightAnswer = $firstOperand + $secondOperand;
-        } elseif ($randOperators === "-") {
-            $rightAnswer = $firstOperand - $secondOperand;
-        }
+        $rightAnswer = $start + $pace * $position;
         /*
         * checking user answer
         */
@@ -40,6 +43,5 @@ function game()
             return false;
         }
     }
-    // onSuccess();
     line("Congratulations, %s!", $askName);
 }

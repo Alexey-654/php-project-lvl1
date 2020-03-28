@@ -39,4 +39,9 @@ $ brain-gcd
 ```
 [![asciicast](https://asciinema.org/a/r2FfKmFi8q3A5D9689VGBxhiP.svg)](https://asciinema.org/a/r2FfKmFi8q3A5D9689VGBxhiP)
 
+```bash
+$ brain-progression
+```
+[![asciicast](https://asciinema.org/a/ln0FgiZHb7Lqplp6wjtfxgsxU.svg)](https://asciinema.org/a/ln0FgiZHb7Lqplp6wjtfxgsxU)
+
 Enjoy:)
