@@ -2,7 +2,6 @@
 Simple console games on php
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/b9574ac0699a8c0cf25c/maintainability)](https://codeclimate.com/github/Alexey-654/php-project-lvl1/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/b9574ac0699a8c0cf25c/test_coverage)](https://codeclimate.com/github/Alexey-654/php-project-lvl1/test_coverage)
 ![CI](https://github.com/Alexey-654/php-project-lvl1/workflows/CI/badge.svg)
 
 ## Installation
@@ -33,5 +32,11 @@ $ brain-even
 $ brain-calc
 ```
 [![asciicast](https://asciinema.org/a/lWtVlbWzTrUpWVQ2dOWCrNFQG.svg)](https://asciinema.org/a/lWtVlbWzTrUpWVQ2dOWCrNFQG)
+
+
+```bash
+$ brain-gcd
+```
+[![asciicast](https://asciinema.org/a/r2FfKmFi8q3A5D9689VGBxhiP.svg)](https://asciinema.org/a/r2FfKmFi8q3A5D9689VGBxhiP)
 
 Enjoy:)

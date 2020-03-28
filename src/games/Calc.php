@@ -7,7 +7,7 @@ use function cli\prompt;
 
 use const BrainGames\Engine\QNT_LOOPS;
 
-function gameCalc()
+function game()
 {
     // I can't manage how to separate line/promt function
     // from the game code to engine.php file becouse of side

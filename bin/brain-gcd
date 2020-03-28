@@ -10,11 +10,10 @@ if (file_exists($autoloadPath1)) {
 }
 
 use function BrainGames\Engine\start;
-use function BrainGames\Calc\game;
+use function BrainGames\gcd\game;
 
 
-$nameOfGame = "What is the result of the expression?";
-
+$nameOfGame = "Find the greatest common divisor of given numbers.";
 
 start();
 game();
