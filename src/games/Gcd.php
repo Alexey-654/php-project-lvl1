@@ -31,7 +31,7 @@ function game()
             }
         }
          // checking user answer
-         if (checkAnswer($answer, $rightAnswer, $askName) == false) {
+        if (checkAnswer($answer, $rightAnswer, $askName) == false) {
             return;
         }
         // if user guess was right on all loops

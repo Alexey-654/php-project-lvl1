@@ -28,8 +28,7 @@ function checkAnswer($answer, $rightAnswer, $askName)
 
 function onSuccess($i, $askName)
 {
-    if ($i == QNT_LOOPS - 1 ) {
+    if ($i == QNT_LOOPS - 1) {
         line("Congratulations, %s!", $askName);
     }
 }
-

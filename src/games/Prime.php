@@ -49,5 +49,3 @@ function isPrime($question)
     }
     return $isPrime;
 }
-
-
