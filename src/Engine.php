@@ -4,20 +4,32 @@ namespace BrainGames\Engine;
 
 use function cli\line;
 use function cli\prompt;
-use function cli\input;
 
 const QNT_LOOPS = 3;
 
-function start()
+function start($nameOfGame)
 {
     line('Welcome to the Brain Games!');
-    line($GLOBALS['nameOfGame']);
+    line($nameOfGame);
     line("");
 }
 
-/*
-function onSuccess()
+function checkAnswer($answer, $rightAnswer, $askName)
 {
-    line("Congratulations, %s!", $askName);
+    if ($answer == $rightAnswer) {
+        line("Correct!");
+        return true;
+    } else {
+        line("'%s' is wrong answer ;(. Correct answer was '%s'.", $answer, $rightAnswer);
+        line("Let's try again, %s!", $askName);
+        return false;
+    }
 }
-*/
+
+function onSuccess($i, $askName)
+{
+    if ($i == QNT_LOOPS - 1 ) {
+        line("Congratulations, %s!", $askName);
+    }
+}
+

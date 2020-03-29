@@ -1,6 +1,6 @@
 <?php
 
-namespace BrainGames\Progression;
+namespace BrainGames\Prime;
 
 use function cli\line;
 use function cli\prompt;
@@ -12,30 +12,19 @@ use const BrainGames\Engine\QNT_LOOPS;
 
 function game()
 {
-    $nameOfGame = "What number is missing in the progression?";
+    $nameOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     start($nameOfGame);
+
     $askName = prompt('May I have your name?');
     line("Hello, %s!", $askName);
-
+    
     for ($i = 0; $i < QNT_LOOPS; $i++) {
-        $question = "";
-        $start = rand(1, 100);
-        $pace = rand(2, 9);
-        $position = rand(1, 10);
-        $nextNum = $start;
-        for ($index = 0; $index <= 10; $index++) {
-            if ($position === $index) {
-                $question = "{$question} ..";
-            } else {
-                $question = "{$question} {$nextNum}";
-            }
-            $nextNum = $nextNum + $pace;
-        }
+        $question = rand(1, 100);
         line("Question:{$question}");
         $answer = prompt('Your answer');
 
         // calculate right answer
-        $rightAnswer = $start + $pace * $position;
+        $rightAnswer = isPrime($question) ? 'yes' : 'no';
         // checking user answer
         if (checkAnswer($answer, $rightAnswer, $askName) == false) {
             return;
@@ -44,3 +33,21 @@ function game()
         onSuccess($i, $askName);
     }
 }
+
+function isPrime($question)
+{
+    if ($question === 1 || $question === 2) {
+        return true;
+    }
+    for ($index = 2; $index < $question; $index++) {
+        if ($question % $index === 0) {
+            $isPrime = false;
+            return $isPrime;
+        } else {
+            $isPrime = true;
+        }
+    }
+    return $isPrime;
+}
+
+

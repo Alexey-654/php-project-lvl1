@@ -4,11 +4,16 @@ namespace BrainGames\Calc;
 
 use function cli\line;
 use function cli\prompt;
+use function BrainGames\Engine\start;
+use function BrainGames\Engine\onSuccess;
+use function BrainGames\Engine\checkAnswer;
 
 use const BrainGames\Engine\QNT_LOOPS;
 
 function game()
 {
+    $nameOfGame = "What is the result of the expression?";
+    start($nameOfGame);
     $askName = prompt('May I have your name?');
     line("Hello, %s!", $askName);
 
@@ -19,9 +24,8 @@ function game()
         $randOperators = $operators[rand(0, 2)];
         line("Question:{$firstOperand} {$randOperators} {$secondOperand}");
         $answer = prompt('Your answer');
-        /*
-        * calculate right answer
-        */
+       
+        // calculate right answer
         if ($randOperators === "*") {
             $rightAnswer = $firstOperand * $secondOperand;
         } elseif ($randOperators === "+") {
@@ -29,17 +33,11 @@ function game()
         } elseif ($randOperators === "-") {
             $rightAnswer = $firstOperand - $secondOperand;
         }
-        /*
-        * checking user answer
-        */
-        if ($answer == $rightAnswer) {
-            line("Correct!");
-        } else {
-            line("'%s' is wrong answer ;(. Correct answer was '%s'.", $answer, $rightAnswer);
-            line("Let's try again, %s!", $askName);
-            return false;
+        // checking user answer
+        if (checkAnswer($answer, $rightAnswer, $askName) == false) {
+            return;
         }
+        // if user guess was right on all loops
+        onSuccess($i, $askName);
     }
-    // onSuccess();
-    line("Congratulations, %s!", $askName);
 }

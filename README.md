@@ -44,4 +44,9 @@ $ brain-progression
 ```
 [![asciicast](https://asciinema.org/a/ln0FgiZHb7Lqplp6wjtfxgsxU.svg)](https://asciinema.org/a/ln0FgiZHb7Lqplp6wjtfxgsxU)
 
-Enjoy:)
+```bash
+$ brain-prime
+```
+[![asciicast](https://asciinema.org/a/sYpgdyCyXHl3BSLoerTcV13ob.svg)](https://asciinema.org/a/sYpgdyCyXHl3BSLoerTcV13ob)
+
+Enjoy :)

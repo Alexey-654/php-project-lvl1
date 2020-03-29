@@ -4,27 +4,31 @@ namespace BrainGames\Even;
 
 use function cli\line;
 use function cli\prompt;
+use function BrainGames\Engine\start;
+use function BrainGames\Engine\onSuccess;
+use function BrainGames\Engine\checkAnswer;
 
-function isEven()
+use const BrainGames\Engine\QNT_LOOPS;
+
+function game()
 {
-    line('Welcome to the Brain Games!');
-    line('Answer "yes" if the number is even, otherwise answer "no".');
-    line("");
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
+    $nameOfGame = 'Answer "yes" if the number is even, otherwise answer "no".';
+    start($nameOfGame);
+
+    $askName = prompt('May I have your name?');
+    line("Hello, %s!", $askName);
     
     for ($i = 0; $i < 3; $i++) {
-        $a = rand(1, 1000);
-        line("Question:{$a}");
+        $question = rand(1, 1000);
+        line("Question:{$question}");
         $answer = prompt('Your answer');
-        $a % 2 === 0 ? $rightAnswer = 'yes' : $rightAnswer = 'no';
-        if ($answer === $rightAnswer) {
-            line("Correct!");
-        } else {
-            line("'%s' is wrong answer ;(. Correct answer was '%s'.", $answer, $rightAnswer);
-            line("Let's try again, %s!", $name);
+        $question % 2 === 0 ? $rightAnswer = 'yes' : $rightAnswer = 'no';
+        
+        // checking user answer
+        if (checkAnswer($answer, $rightAnswer, $askName) == false) {
             return;
         }
+        // if user guess was right on all loops
+        onSuccess($i, $askName);
     }
-    line("Congratulations, %s!", $name);
 }
