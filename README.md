@@ -10,7 +10,7 @@ In your Linux terminal in any directory type
 ```bash
 $ composer global require alexey-654/php-project-lvl1
 ```
-[![asciicast](https://asciinema.org/a/1gnWTcbRcybYk0NzBMJMqdiAk.svg)](https://asciinema.org/a/1gnWTcbRcybYk0NzBMJMqdiAk)
+[![asciicast](https://asciinema.org/a/GkqdrfxEYp53blzeEabcM5XMV.svg)](https://asciinema.org/a/GkqdrfxEYp53blzeEabcM5XMV)
 
 ### Local
 In your Linux terminal go to the directory where you want to install this package then type three commands:
@@ -26,27 +26,27 @@ In your terminal type command (name one of games):
 ```bash
 $ brain-even
 ```
-[![asciicast](https://asciinema.org/a/JPtHHwQrvSCUzS4PZVl5fEYMo.svg)](https://asciinema.org/a/JPtHHwQrvSCUzS4PZVl5fEYMo)
+[![asciicast](https://asciinema.org/a/mqR3XLf4umITDjzo9BAVKERCW.svg)](https://asciinema.org/a/mqR3XLf4umITDjzo9BAVKERCW)
 
 ```bash
 $ brain-calc
 ```
-[![asciicast](https://asciinema.org/a/lWtVlbWzTrUpWVQ2dOWCrNFQG.svg)](https://asciinema.org/a/lWtVlbWzTrUpWVQ2dOWCrNFQG)
+[![asciicast](https://asciinema.org/a/N5Nlzn4vpYbHOSEXgctdnf8AV.svg)](https://asciinema.org/a/N5Nlzn4vpYbHOSEXgctdnf8AV)
 
 
 ```bash
 $ brain-gcd
 ```
-[![asciicast](https://asciinema.org/a/r2FfKmFi8q3A5D9689VGBxhiP.svg)](https://asciinema.org/a/r2FfKmFi8q3A5D9689VGBxhiP)
+[![asciicast](https://asciinema.org/a/YaYzmq61GDnpeYJaEh78HP3Pj.svg)](https://asciinema.org/a/YaYzmq61GDnpeYJaEh78HP3Pj)
 
 ```bash
 $ brain-progression
 ```
-[![asciicast](https://asciinema.org/a/ln0FgiZHb7Lqplp6wjtfxgsxU.svg)](https://asciinema.org/a/ln0FgiZHb7Lqplp6wjtfxgsxU)
+[![asciicast](https://asciinema.org/a/DKkJ8Ebep8NCVVsqqLK7bCRPv.svg)](https://asciinema.org/a/DKkJ8Ebep8NCVVsqqLK7bCRPv)
 
 ```bash
 $ brain-prime
 ```
-[![asciicast](https://asciinema.org/a/sYpgdyCyXHl3BSLoerTcV13ob.svg)](https://asciinema.org/a/sYpgdyCyXHl3BSLoerTcV13ob)
+[![asciicast](https://asciinema.org/a/3pEoJBE5YMrhQqdIAP3hdgEC2.svg)](https://asciinema.org/a/3pEoJBE5YMrhQqdIAP3hdgEC2)
 
 Enjoy :)
