@@ -10,31 +10,21 @@ use function BrainGames\Engine\checkAnswer;
 
 use const BrainGames\Engine\QNT_LOOPS;
 
-function game()
+function gcd()
 {
-    $nameOfGame = "Find the greatest common divisor of given numbers.";
-    start($nameOfGame);
-
-    $askName = prompt('May I have your name?');
-    line("Hello, %s!", $askName);
-
+    $gameName = "Find the greatest common divisor of given numbers.";
+    
     for ($i = 0; $i < QNT_LOOPS; $i++) {
         $firstNum = rand(1, 50);
         $secondNum = rand(1, 100);
-        line("Question:{$firstNum} {$secondNum}");
-        $answer = prompt('Your answer');
+        $question[$i] = "{$firstNum} {$secondNum}";
 
-        // calculate right answer
         for ($index = 1; $index < $firstNum; $index++) {
             if ($firstNum % $index === 0 && $secondNum % $index === 0) {
-                $rightAnswer = $index;
+                $rightAnswer[$i] = $index;
             }
         }
-         // checking user answer
-        if (checkAnswer($answer, $rightAnswer, $askName) == false) {
-            return;
-        }
-        // if user guess was right on all loops
-        onSuccess($i, $askName);
     }
+
+    start($gameName, $question, $rightAnswer);
 }

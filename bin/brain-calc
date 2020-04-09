@@ -9,6 +9,10 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function BrainGames\Calc\game;
+// use BrainGames\Calc;
+use function BrainGames\Calc\calc;
+// use function BrainGames\Engine\start;
 
-game();
+// use const BrainGames\Calc\GAME_NAME;
+
+calc();

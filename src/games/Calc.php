@@ -2,42 +2,32 @@
 
 namespace BrainGames\Calc;
 
-use function cli\line;
-use function cli\prompt;
 use function BrainGames\Engine\start;
-use function BrainGames\Engine\onSuccess;
-use function BrainGames\Engine\checkAnswer;
 
 use const BrainGames\Engine\QNT_LOOPS;
 
-function game()
+function calc()
 {
-    $nameOfGame = "What is the result of the expression?";
-    start($nameOfGame);
-    $askName = prompt('May I have your name?');
-    line("Hello, %s!", $askName);
-
+    $gameName = "What is the result of the expression?";
     $operators = ['*', '+', '-'];
+    
     for ($i = 0; $i < QNT_LOOPS; $i++) {
         $firstOperand = rand(1, 50);
         $secondOperand = rand(1, 20);
-        $randOperators = $operators[rand(0, 2)];
-        line("Question:{$firstOperand} {$randOperators} {$secondOperand}");
-        $answer = prompt('Your answer');
-       
-        // calculate right answer
-        if ($randOperators === "*") {
-            $rightAnswer = $firstOperand * $secondOperand;
-        } elseif ($randOperators === "+") {
-            $rightAnswer = $firstOperand + $secondOperand;
-        } elseif ($randOperators === "-") {
-            $rightAnswer = $firstOperand - $secondOperand;
+        $randOperators = $operators[rand(0, count($operators) - 1)];
+        $question[$i] = "{$firstOperand} {$randOperators} {$secondOperand}";
+
+        switch ($randOperators) {
+            case '*':
+                $rightAnswer[$i] = $firstOperand * $secondOperand;
+                break;
+            case '+':
+                $rightAnswer[$i] = $firstOperand + $secondOperand;
+                break;
+            case '-':
+                $rightAnswer[$i] = $firstOperand - $secondOperand;
+                break;
         }
-        // checking user answer
-        if (checkAnswer($answer, $rightAnswer, $askName) == false) {
-            return;
-        }
-        // if user guess was right on all loops
-        onSuccess($i, $askName);
     }
+    start($gameName, $question, $rightAnswer);
 }

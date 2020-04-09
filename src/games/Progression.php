@@ -2,45 +2,32 @@
 
 namespace BrainGames\Progression;
 
-use function cli\line;
-use function cli\prompt;
 use function BrainGames\Engine\start;
-use function BrainGames\Engine\onSuccess;
-use function BrainGames\Engine\checkAnswer;
 
 use const BrainGames\Engine\QNT_LOOPS;
 
-function game()
+function progression()
 {
-    $nameOfGame = "What number is missing in the progression?";
-    start($nameOfGame);
-    $askName = prompt('May I have your name?');
-    line("Hello, %s!", $askName);
+    $gameName = "What number is missing in the progression?";
 
     for ($i = 0; $i < QNT_LOOPS; $i++) {
-        $question = "";
+        $question[$i] = "";
+        $progrSize = 10;
         $start = rand(1, 100);
         $pace = rand(2, 9);
         $position = rand(1, 10);
         $nextNum = $start;
-        for ($index = 0; $index <= 10; $index++) {
+        for ($index = 0; $index <= $progrSize; $index++) {
             if ($position === $index) {
-                $question = "{$question} ..";
+                $question[$i] = "{$question[$i]} ..";
             } else {
-                $question = "{$question} {$nextNum}";
+                $question[$i] = "{$question[$i]} {$nextNum}";
             }
             $nextNum = $nextNum + $pace;
         }
-        line("Question:{$question}");
-        $answer = prompt('Your answer');
 
-        // calculate right answer
-        $rightAnswer = $start + $pace * $position;
-        // checking user answer
-        if (checkAnswer($answer, $rightAnswer, $askName) == false) {
-            return;
-        }
-        // if user guess was right on all loops
-        onSuccess($i, $askName);
+        $rightAnswer[] = $start + $pace * $position;
     }
+
+    start($gameName, $question, $rightAnswer);
 }

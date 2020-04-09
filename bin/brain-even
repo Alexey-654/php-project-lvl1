@@ -10,6 +10,6 @@ if (file_exists($autoloadPath1)) {
 }
 
 
-use function BrainGames\Even\game;
+use function BrainGames\Even\even;
 
-game();
+even();

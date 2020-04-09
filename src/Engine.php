@@ -7,28 +7,25 @@ use function cli\prompt;
 
 const QNT_LOOPS = 3;
 
-function start($nameOfGame)
+function start($gameName, $question, $rightAnswer)
 {
     line('Welcome to the Brain Games!');
-    line($nameOfGame);
+    line($gameName);
     line("");
-}
-
-function checkAnswer($answer, $rightAnswer, $askName)
-{
-    if ($answer == $rightAnswer) {
-        line("Correct!");
-        return true;
-    } else {
-        line("'%s' is wrong answer ;(. Correct answer was '%s'.", $answer, $rightAnswer);
-        line("Let's try again, %s!", $askName);
-        return false;
+    $userName = prompt('May I have your name?');
+    line("Hello, %s!", $userName);
+    
+    for ($i = 0; $i < QNT_LOOPS; $i++) {
+        line("Question:{$question[$i]}");
+        $userAnswer = prompt('Your answer');
+        if ($userAnswer == $rightAnswer[$i]) {
+            line("Correct!");
+        } else {
+            line("'%s' is wrong answer ;(. Correct answer was '%s'.", $userAnswer, $rightAnswer[$i]);
+            line("Let's try again, %s!", $userName);
+            return false;
+        }
     }
-}
 
-function onSuccess($i, $askName)
-{
-    if ($i == QNT_LOOPS - 1) {
-        line("Congratulations, %s!", $askName);
-    }
+    line("Congratulations, %s!", $userName);
 }
