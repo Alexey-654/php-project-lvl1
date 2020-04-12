@@ -7,25 +7,25 @@ use function cli\prompt;
 
 const QNT_LOOPS = 3;
 
-function start($gameName, $question, $rightAnswer)
+function start($gameDescrption, $accGameData)
 {
     line('Welcome to the Brain Games!');
-    line($gameName);
+    line($gameDescrption);
     line("");
     $userName = prompt('May I have your name?');
     line("Hello, %s!", $userName);
     
     for ($i = 0; $i < QNT_LOOPS; $i++) {
-        line("Question:{$question[$i]}");
+        line("Question:{$accGameData[$i]['question']}");
         $userAnswer = prompt('Your answer');
-        if ($userAnswer == $rightAnswer[$i]) {
+        if ($userAnswer == $accGameData[$i]['rightAnswer']) {
             line("Correct!");
         } else {
-            line("'%s' is wrong answer ;(. Correct answer was '%s'.", $userAnswer, $rightAnswer[$i]);
+            line("'%s' is wrong answer ;(. Correct answer was '%s'.", $userAnswer, $accGameData[$i]['rightAnswer']);
             line("Let's try again, %s!", $userName);
             return false;
         }
     }
 
-    line("Congratulations, %s!", $userName);
+    return line("Congratulations, %s!", $userName);
 }

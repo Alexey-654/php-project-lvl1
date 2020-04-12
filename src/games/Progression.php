@@ -8,26 +8,29 @@ use const BrainGames\Engine\QNT_LOOPS;
 
 function progression()
 {
-    $gameName = "What number is missing in the progression?";
+    $gameDescrption = "What number is missing in the progression?";
 
     for ($i = 0; $i < QNT_LOOPS; $i++) {
-        $question[$i] = "";
+        $question = "";
         $progrSize = 10;
         $start = rand(1, 100);
-        $pace = rand(2, 9);
-        $position = rand(1, 10);
-        $nextNum = $start;
+        $pace = rand(2, 9); //шаг прогресии
+        $position = rand(0, $progrSize);
+
         for ($index = 0; $index <= $progrSize; $index++) {
             if ($position === $index) {
-                $question[$i] = "{$question[$i]} ..";
+                $question = "{$question} ..";
             } else {
-                $question[$i] = "{$question[$i]} {$nextNum}";
+                $nextNum = $start + $pace * $index;
+                $question = "{$question} {$nextNum}";
             }
-            $nextNum = $nextNum + $pace;
         }
 
-        $rightAnswer[] = $start + $pace * $position;
+        $rightAnswer = $start + $pace * $position;
+
+        $accGameData[$i]['question'] = $question;
+        $accGameData[$i]['rightAnswer'] = $rightAnswer;
     }
 
-    start($gameName, $question, $rightAnswer);
+    start($gameDescrption, $accGameData);
 }

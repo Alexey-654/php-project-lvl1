@@ -8,26 +8,28 @@ use const BrainGames\Engine\QNT_LOOPS;
 
 function calc()
 {
-    $gameName = "What is the result of the expression?";
+    $gameDescrption = "What is the result of the expression?";
     $operators = ['*', '+', '-'];
     
     for ($i = 0; $i < QNT_LOOPS; $i++) {
         $firstOperand = rand(1, 50);
         $secondOperand = rand(1, 20);
-        $randOperators = $operators[rand(0, count($operators) - 1)];
-        $question[$i] = "{$firstOperand} {$randOperators} {$secondOperand}";
+        $randOperators = array_rand(array_flip($operators));
+        $question = "{$firstOperand} {$randOperators} {$secondOperand}";
 
         switch ($randOperators) {
             case '*':
-                $rightAnswer[$i] = $firstOperand * $secondOperand;
+                $rightAnswer = $firstOperand * $secondOperand;
                 break;
             case '+':
-                $rightAnswer[$i] = $firstOperand + $secondOperand;
+                $rightAnswer = $firstOperand + $secondOperand;
                 break;
             case '-':
-                $rightAnswer[$i] = $firstOperand - $secondOperand;
+                $rightAnswer = $firstOperand - $secondOperand;
                 break;
         }
+        $accGameData[$i]['question'] = $question;
+        $accGameData[$i]['rightAnswer'] = $rightAnswer;
     }
-    start($gameName, $question, $rightAnswer);
+    start($gameDescrption, $accGameData);
 }

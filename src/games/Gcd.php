@@ -12,19 +12,26 @@ use const BrainGames\Engine\QNT_LOOPS;
 
 function gcd()
 {
-    $gameName = "Find the greatest common divisor of given numbers.";
+    $gameDescrption = "Find the greatest common divisor of given numbers.";
     
     for ($i = 0; $i < QNT_LOOPS; $i++) {
-        $firstNum = rand(1, 50);
-        $secondNum = rand(1, 100);
-        $question[$i] = "{$firstNum} {$secondNum}";
-
-        for ($index = 1; $index < $firstNum; $index++) {
-            if ($firstNum % $index === 0 && $secondNum % $index === 0) {
-                $rightAnswer[$i] = $index;
-            }
-        }
+        $firstNum = rand(2, 50);
+        $secondNum = rand(2, 100);
+        $question = "{$firstNum} {$secondNum}";
+        $rightAnswer = getRightGcd($firstNum, $secondNum);
+        $accGameData[$i]['question'] = $question;
+        $accGameData[$i]['rightAnswer'] = $rightAnswer;
     }
 
-    start($gameName, $question, $rightAnswer);
+    start($gameDescrption, $accGameData);
+}
+
+function getRightGcd($firstNum, $secondNum)
+{
+    for ($index = 1; $index <= $firstNum; $index++) {
+        if ($firstNum % $index === 0 && $secondNum % $index === 0) {
+            $rightAnswer = $index;
+        }
+    }
+    return $rightAnswer;
 }
