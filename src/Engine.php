@@ -5,27 +5,32 @@ namespace BrainGames\Engine;
 use function cli\line;
 use function cli\prompt;
 
-const QNT_LOOPS = 3;
+const LOOPS_COUNT = 3;
 
-function start($gameDescrption, $accGameData)
+function startGame($gameDescription, $GameData)
 {
     line('Welcome to the Brain Games!');
-    line($gameDescrption);
+    line($gameDescription);
     line("");
     $userName = prompt('May I have your name?');
     line("Hello, %s!", $userName);
     
-    for ($i = 0; $i < QNT_LOOPS; $i++) {
-        line("Question:{$accGameData[$i]['question']}");
+    for ($i = 0; $i < LOOPS_COUNT; $i++) {
+        [
+            'rightAnswer' => $rightAnswer,
+            'question' => $question
+        ]
+            = $GameData[$i];
+        line("Question:{$question}");
         $userAnswer = prompt('Your answer');
-        if ($userAnswer == $accGameData[$i]['rightAnswer']) {
+        if ($userAnswer == $rightAnswer) {
             line("Correct!");
         } else {
-            line("'%s' is wrong answer ;(. Correct answer was '%s'.", $userAnswer, $accGameData[$i]['rightAnswer']);
+            line("'%s' is wrong answer ;(. Correct answer was '%s'.", $userAnswer, $rightAnswer);
             line("Let's try again, %s!", $userName);
-            return false;
+            return;
         }
     }
 
-    return line("Congratulations, %s!", $userName);
+    line("Congratulations, %s!", $userName);
 }

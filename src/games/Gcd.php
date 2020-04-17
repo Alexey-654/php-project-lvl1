@@ -2,31 +2,27 @@
 
 namespace BrainGames\Gcd;
 
-use function cli\line;
-use function cli\prompt;
-use function BrainGames\Engine\start;
-use function BrainGames\Engine\onSuccess;
-use function BrainGames\Engine\checkAnswer;
+use function BrainGames\Engine\startGame;
 
-use const BrainGames\Engine\QNT_LOOPS;
+use const BrainGames\Engine\LOOPS_COUNT;
 
-function gcd()
+function gcdGame()
 {
-    $gameDescrption = "Find the greatest common divisor of given numbers.";
+    $gameDescription = "Find the greatest common divisor of given numbers.";
     
-    for ($i = 0; $i < QNT_LOOPS; $i++) {
+    for ($i = 0; $i < LOOPS_COUNT; $i++) {
         $firstNum = rand(2, 50);
         $secondNum = rand(2, 100);
         $question = "{$firstNum} {$secondNum}";
-        $rightAnswer = getRightGcd($firstNum, $secondNum);
-        $accGameData[$i]['question'] = $question;
-        $accGameData[$i]['rightAnswer'] = $rightAnswer;
+        $rightAnswer = getGcd($firstNum, $secondNum);
+        $GameData[$i]['question'] = $question;
+        $GameData[$i]['rightAnswer'] = $rightAnswer;
     }
 
-    start($gameDescrption, $accGameData);
+    startGame($gameDescription, $GameData);
 }
 
-function getRightGcd($firstNum, $secondNum)
+function getGcd($firstNum, $secondNum)
 {
     for ($index = 1; $index <= $firstNum; $index++) {
         if ($firstNum % $index === 0 && $secondNum % $index === 0) {

@@ -2,20 +2,20 @@
 
 namespace BrainGames\Even;
 
-use function BrainGames\Engine\start;
+use function BrainGames\Engine\startGame;
 
-use const BrainGames\Engine\QNT_LOOPS;
+use const BrainGames\Engine\LOOPS_COUNT;
 
-function even()
+function evenGame()
 {
-    $gameDescrption = 'Answer "yes" if the number is even, otherwise answer "no".';
+    $gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-    for ($i = 0; $i < QNT_LOOPS; $i++) {
+    for ($i = 0; $i < LOOPS_COUNT; $i++) {
         $question = rand(1, 1000);
         $question % 2 === 0 ? $rightAnswer = 'yes' : $rightAnswer = 'no';
-        $accGameData[$i]['question'] = $question;
-        $accGameData[$i]['rightAnswer'] = $rightAnswer;
+        $GameData[$i]['question'] = $question;
+        $GameData[$i]['rightAnswer'] = $rightAnswer;
     }
     
-    start($gameDescrption, $accGameData);
+    startGame($gameDescription, $GameData);
 }

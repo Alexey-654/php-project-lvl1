@@ -2,16 +2,16 @@
 
 namespace BrainGames\Calc;
 
-use function BrainGames\Engine\start;
+use function BrainGames\Engine\startGame;
 
-use const BrainGames\Engine\QNT_LOOPS;
+use const BrainGames\Engine\LOOPS_COUNT;
 
-function calc()
+function calcGame()
 {
-    $gameDescrption = "What is the result of the expression?";
+    $gameDescription = "What is the result of the expression?";
     $operators = ['*', '+', '-'];
     
-    for ($i = 0; $i < QNT_LOOPS; $i++) {
+    for ($i = 0; $i < LOOPS_COUNT; $i++) {
         $firstOperand = rand(1, 50);
         $secondOperand = rand(1, 20);
         $randOperators = array_rand(array_flip($operators));
@@ -28,8 +28,8 @@ function calc()
                 $rightAnswer = $firstOperand - $secondOperand;
                 break;
         }
-        $accGameData[$i]['question'] = $question;
-        $accGameData[$i]['rightAnswer'] = $rightAnswer;
+        $GameData[$i]['question'] = $question;
+        $GameData[$i]['rightAnswer'] = $rightAnswer;
     }
-    start($gameDescrption, $accGameData);
+    startGame($gameDescription, $GameData);
 }
