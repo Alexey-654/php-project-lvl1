@@ -2,7 +2,7 @@
 
 namespace BrainGames\Prime;
 
-use function BrainGames\Engine\startGame;
+use function BrainGames\Engine\playGame;
 
 use const BrainGames\Engine\LOOPS_COUNT;
 
@@ -13,11 +13,10 @@ function primeGame()
     for ($i = 0; $i < LOOPS_COUNT; $i++) {
         $question = rand(1, 100);
         $rightAnswer = isPrime($question) ? 'yes' : 'no';
-        $GameData[$i]['question'] = $question;
-        $GameData[$i]['rightAnswer'] = $rightAnswer;
+        $gameData[] = ['question' => $question, 'rightAnswer' => $rightAnswer];
     }
 
-    startGame($gameDescription, $GameData);
+    playGame($gameDescription, $gameData);
 }
 
 function isPrime($question)
@@ -29,7 +28,7 @@ function isPrime($question)
         return false;
     }
 
-    for ($index = 2; $index < $question / 2; $index++) {
+    for ($index = 2; $index <= $question / 2; $index++) {
         if ($question % $index === 0) {
             return false;
         }

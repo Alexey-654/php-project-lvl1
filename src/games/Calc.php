@@ -2,7 +2,7 @@
 
 namespace BrainGames\Calc;
 
-use function BrainGames\Engine\startGame;
+use function BrainGames\Engine\playGame;
 
 use const BrainGames\Engine\LOOPS_COUNT;
 
@@ -15,7 +15,7 @@ function calcGame()
         $firstOperand = rand(1, 50);
         $secondOperand = rand(1, 20);
         $randOperators = array_rand(array_flip($operators));
-        $question = "{$firstOperand} {$randOperators} {$secondOperand}";
+        $question = "$firstOperand $randOperators $secondOperand";
 
         switch ($randOperators) {
             case '*':
@@ -28,8 +28,7 @@ function calcGame()
                 $rightAnswer = $firstOperand - $secondOperand;
                 break;
         }
-        $GameData[$i]['question'] = $question;
-        $GameData[$i]['rightAnswer'] = $rightAnswer;
+        $gameData[] = ['question' => $question, 'rightAnswer' => $rightAnswer];
     }
-    startGame($gameDescription, $GameData);
+    playGame($gameDescription, $gameData);
 }

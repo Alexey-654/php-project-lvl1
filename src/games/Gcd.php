@@ -2,7 +2,7 @@
 
 namespace BrainGames\Gcd;
 
-use function BrainGames\Engine\startGame;
+use function BrainGames\Engine\playGame;
 
 use const BrainGames\Engine\LOOPS_COUNT;
 
@@ -13,13 +13,12 @@ function gcdGame()
     for ($i = 0; $i < LOOPS_COUNT; $i++) {
         $firstNum = rand(2, 50);
         $secondNum = rand(2, 100);
-        $question = "{$firstNum} {$secondNum}";
+        $question = "$firstNum $secondNum";
         $rightAnswer = getGcd($firstNum, $secondNum);
-        $GameData[$i]['question'] = $question;
-        $GameData[$i]['rightAnswer'] = $rightAnswer;
+        $gameData[] = ['question' => $question, 'rightAnswer' => $rightAnswer];
     }
 
-    startGame($gameDescription, $GameData);
+    playGame($gameDescription, $gameData);
 }
 
 function getGcd($firstNum, $secondNum)

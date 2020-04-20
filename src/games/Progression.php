@@ -2,7 +2,7 @@
 
 namespace BrainGames\Progression;
 
-use function BrainGames\Engine\startGame;
+use function BrainGames\Engine\playGame;
 
 use const BrainGames\Engine\LOOPS_COUNT;
 
@@ -11,26 +11,23 @@ function progressionGame()
     $gameDescription = "What number is missing in the progression?";
 
     for ($i = 0; $i < LOOPS_COUNT; $i++) {
-        $question = "";
-        $progrSize = 9;
+        $progressionSize = 10;
         $start = rand(1, 100);
-        $pace = rand(2, 9); //шаг прогресии
-        $position = rand(0, $progrSize);
+        $step = rand(2, 9);
+        $position = rand(0, $progressionSize - 1);
 
-        for ($index = 0; $index <= $progrSize; $index++) {
+        for ($index = 0; $index < $progressionSize; $index++) {
             if ($position === $index) {
-                $question = "{$question} ..";
+                $progression[$index] = "..";
             } else {
-                $nextNum = $start + $pace * $index;
-                $question = "{$question} {$nextNum}"; //не вижу лишних пробелов. искал отвественно.
+                $nextNum = $start + $step * $index;
+                $progression[$index] = $nextNum;
             }
         }
-
-        $rightAnswer = $start + $pace * $position;
-
-        $GameData[$i]['question'] = $question;
-        $GameData[$i]['rightAnswer'] = $rightAnswer;
+        $question = implode(" ", $progression);
+        $rightAnswer = $start + $step * $position;
+        $gameData[$i] = ['question' => $question, 'rightAnswer' => $rightAnswer];
     }
 
-    startGame($gameDescription, $GameData);
+    playGame($gameDescription, $gameData);
 }

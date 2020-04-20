@@ -7,7 +7,7 @@ use function cli\prompt;
 
 const LOOPS_COUNT = 3;
 
-function startGame($gameDescription, $GameData)
+function playGame($gameDescription, $gameData)
 {
     line('Welcome to the Brain Games!');
     line($gameDescription);
@@ -15,13 +15,13 @@ function startGame($gameDescription, $GameData)
     $userName = prompt('May I have your name?');
     line("Hello, %s!", $userName);
     
-    for ($i = 0; $i < LOOPS_COUNT; $i++) {
+    foreach ($gameData as $gameDataSlice) {
         [
             'rightAnswer' => $rightAnswer,
             'question' => $question
         ]
-            = $GameData[$i];
-        line("Question:{$question}");
+            = $gameDataSlice;
+        line("Question: $question");
         $userAnswer = prompt('Your answer');
         if ($userAnswer == $rightAnswer) {
             line("Correct!");
